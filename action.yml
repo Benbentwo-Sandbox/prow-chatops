@@ -1,15 +1,24 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Prow ChatOps'
+description: 'Run ChatOps on PRs similar to prow through github actions'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  fruit:
+    description: 'remove This'
     required: true
-    default: 'World'
+  whitelist:  # list of commands to allow
+    description: 'comma separated list of commands to specifically allow, empty to allow all (default).'
+    required: false
+    default: ''
+  blacklist:
+    description: 'comma separated list of commands to specifically disallow, empty to not block any (default)'
+    required: false
+    default: ''
+#    TODO custom Word/Action?
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  chatops-list: # id of output
+    description: 'The list of allowed commands to trigger chatops events'
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.who-to-greet }}
+#  args:
+#    - ${{ inputs.whitelist }}
+#    - ${{ inputs.blacklist }}
