@@ -1,0 +1,6 @@
+hack/
+examples/
+
+build/
+.github/
+cli/

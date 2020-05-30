@@ -10,3 +10,5 @@ jobs:
         uses: Benbentwo-Sandbox/prow-chatops@master
         with:
           fruit: banana
+      - name: Echo fruit
+        run: echo "apple, banana, and orange"

@@ -1,4 +1,4 @@
-FROM golang:1.12.4
+FROM golang:1.14.2
 
 # Copy all the files from the host into the container
 WORKDIR /src
