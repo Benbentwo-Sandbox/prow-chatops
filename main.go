@@ -18,6 +18,7 @@ func main() {
 
 	err := json.Unmarshal([]byte(event), &issueCommentEvent)
 	if err != nil {
+		actions.Warningf("Error parsing github event", err)
 		actions.Fatalf("Couldn't Parse the github event!")
 	}
 
