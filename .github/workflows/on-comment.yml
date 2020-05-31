@@ -1,0 +1,15 @@
+name: Pull Request Comment
+on:
+  pull_request:
+    types: [opened]
+  issue_comment:
+    types: [created]
+
+jobs:
+  react-to-comment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Comment
+        uses: Benbentwo-Sandbox/prow-chatops@master
+        with:
+          githubevent: ${{github.event}}

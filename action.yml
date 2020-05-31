@@ -1,9 +1,10 @@
 name: 'Prow ChatOps'
 description: 'Run ChatOps on PRs similar to prow through github actions'
 inputs:
-  fruit:
-    description: 'remove This'
+  githubevent:
+    description: 'add ${{github.event}} here to send the payload'
     required: true
+    default: "${{github.event}}"
   whitelist:  # list of commands to allow
     description: 'comma separated list of commands to specifically allow, empty to allow all (default).'
     required: false
