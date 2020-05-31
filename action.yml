@@ -4,7 +4,7 @@ inputs:
   githubevent:
     description: 'add ${{github.event}} here to send the payload'
     required: true
-    default: "${{github.event}}"
+    default: ""
   whitelist:  # list of commands to allow
     description: 'comma separated list of commands to specifically allow, empty to allow all (default).'
     required: false
