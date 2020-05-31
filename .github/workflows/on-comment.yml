@@ -9,7 +9,10 @@ jobs:
   react-to-comment:
     runs-on: ubuntu-latest
     steps:
+      - id: setevent
+        run: |
+          echo "##[set-output name=event;] '''${{github.event}}'''"
       - name: Check Comment
         uses: Benbentwo-Sandbox/prow-chatops@master
         with:
-          githubevent: '${{github.event}}'
+          githubevent: '${{steps.setevent.outputs.event}}'
