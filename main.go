@@ -2,7 +2,6 @@ package main
 
 import (
 	actions "github.com/sethvargo/go-githubactions"
-	"os"
 	// "github.com/sirupsen/logrus"
 	// "k8s.io/test-infra/prow/config"
 	// "k8s.io/test-infra/prow/github"
@@ -12,8 +11,6 @@ import (
 )
 
 func main() {
-	githubToken := os.Getenv("GITHUB_TOKEN")
-
-	actions.AddMask(githubToken)
-	actions.Warningf("GithubEvent: %s", actions.GetInput("githubevent"))
+	event := actions.GetInput("githubevent")
+	actions.Warningf("Event: %s", event)
 }

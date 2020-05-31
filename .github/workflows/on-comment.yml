@@ -11,8 +11,8 @@ jobs:
     steps:
       - id: setevent
         run: |
-          echo "##[set-output name=event;] ${{toJson(github.event)}}"
+          echo "##[set-output name=event;] ${{github.event}}"
       - name: Check Comment
         uses: Benbentwo-Sandbox/prow-chatops@master
         with:
-          githubevent: '${{steps.setevent.outputs.event}}'
+          githubevent: '${{toJson(github.event)}}'
