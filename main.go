@@ -21,4 +21,5 @@ func main() {
 		actions.Fatalf("Couldn't Parse the github event!")
 	}
 
+	actions.Warningf("Commenter: %s", issueCommentEvent.Comment.User.Name)
 }
