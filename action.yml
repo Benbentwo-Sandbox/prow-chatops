@@ -2,7 +2,7 @@ name: 'Prow ChatOps'
 description: 'Run ChatOps on PRs similar to prow through github actions'
 inputs:
   githubevent:
-    description: 'add github.event here to send the payload'
+    description: 'add githubevent here to send the payload'
     required: true
     default: ""
   whitelist:  # list of commands to allow
