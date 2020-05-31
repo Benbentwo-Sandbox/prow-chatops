@@ -12,4 +12,4 @@ jobs:
       - name: Check Comment
         uses: Benbentwo-Sandbox/prow-chatops@master
         with:
-          githubevent: ${{github.event}}
+          githubevent: '${{github.event}}'
