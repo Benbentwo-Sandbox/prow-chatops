@@ -1,0 +1,123 @@
+
+plugins:
+ - approve
+ - assign
+ - blockade
+ - blunderbuss
+ - branchcleaner
+ - bugzilla
+ - buildifier
+ - cat
+ - cherrypickunapproved
+ - cla
+ - dco
+ - dog
+ - golint
+ - goose
+ - heart
+ - help
+ - hold
+ - invalidcommitmsg
+ - label
+ - lgtm
+ - lifecycle
+ - mergecommitblocker
+ - milestone
+ - milestoneapplier
+ - milestonestatus
+ - override
+ - owners-label
+ - pony
+ - project
+ - projectmanager
+ - releasenote
+ - require-matching-label
+ - requiresig
+ - retitle
+ - shrug
+ - sigmention
+ - size
+ - skip
+ - slackevents
+ - stage
+ - trigger
+ - updateconfig
+ - verify-owners
+ - welcome
+ - wip
+ - yuks
+commands:
+  - approve:
+     name: approve
+     flags:
+      - # No Flag
+      - no-issue
+      - cancel
+ # - approve no-issue
+ # - approve cancel
+  - area:
+     name: area
+     args: true #[label1 label2 ...]
+  - remove-area:
+     name: remove-area
+     args: true #[label1 label2 ...]
+  - assign:
+     name: assign
+     args: true #[@userA @userB @etc]
+  - unassign:
+     name: unassign
+     args: true #[@userA @userB @etc]
+  - cc:
+     name: cc
+     args: true #[@userA @userB @etc]
+  - uncc:
+     name: uncc
+     args: true #[@userA @userB @etc]
+  - close:
+     name: close
+  - reopen:
+     name: reopen
+  - hold:
+     name: hold
+     flags:
+      - cancel
+  - joke:
+     name: joke
+  - kind:
+     name: kind
+     args: true #[label1 label2 ...]
+  - remove-kind:
+     name: remove-kind
+     args: true #[label1 label2 ...]
+  - lgtm:
+     name: lgtm
+     flags:
+      - cancel
+  - ok-to-test:
+     name: ok-to-test
+  - test all:
+     name: test all
+  - retest:
+     name: retest
+  - priority:
+     name: priority
+     args: true #[label1 label2 ...]
+  - remove-priority:
+     name: remove-priority
+     args: true #[label1 label2 ...]
+  - sig:
+     name: sig
+     args: true #[label1 label2 ...]
+#  - kubernetes/sig-<some-github-team>
+  - remove-sig:
+     name: remove-sig
+     args: true #[label1 label2 ...]
+  - release-note:
+     name: release-note
+  - release-note-action-required:
+     name: release-note-action-required
+  - release-note-none:
+     name: release-note-none
+  - status:
+     name: status
+     args: true #[label1 label2 ...]

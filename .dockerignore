@@ -4,3 +4,4 @@ examples/
 build/
 .github/
 cli/
+*_test.go
