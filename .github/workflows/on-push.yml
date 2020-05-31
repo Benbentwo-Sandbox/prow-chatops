@@ -1,4 +1,4 @@
-name: Example
+name: On Push
 on: [push]
 
 jobs:
