@@ -1,75 +1,47 @@
 commands:
-  - approve:
-      name: approve
-      flags:
-        - ''# No Flag
-        - no-issue
-        - cancel
-  # - approve no-issue
-  # - approve cancel
-  - area:
-      name: area
-      args: true #[label1 label2 ...]
-  - remove-area:
-      name: remove-area
-      args: true #[label1 label2 ...]
-  - assign:
-      name: assign
-      args: true #[@userA @userB @etc]
-  - unassign:
-      name: unassign
-      args: true #[@userA @userB @etc]
-  - cc:
-      name: cc
-      args: true #[@userA @userB @etc]
-  - uncc:
-      name: uncc
-      args: true #[@userA @userB @etc]
-  - close:
-      name: close
-  - reopen:
-      name: reopen
-  - hold:
-      name: hold
-      flags:
-        - cancel
-  - joke:
-      name: joke
-  - kind:
-      name: kind
-      args: true #[label1 label2 ...]
-  - remove-kind:
-      name: remove-kind
-      args: true #[label1 label2 ...]
-  - lgtm:
-      name: lgtm
-      flags:
-        - cancel
-  - ok-to-test:
-      name: ok-to-test
-  - test all:
-      name: test all
-  - retest:
-      name: retest
-  - priority:
-      name: priority
-      args: true #[label1 label2 ...]
-  - remove-priority:
-      name: remove-priority
-      args: true #[label1 label2 ...]
-  - sig:
-      name: sig
-      args: true #[label1 label2 ...]
+  - name: approve
+    flags:
+      - no-issue
+      - cancel
+  - name: area
+    args: true 
+  - name: remove-area
+    args: true 
+  - name: assign
+    args: true 
+  - name: unassign
+    args: true 
+  - name: cc
+    args: true 
+  - name: uncc
+    args: true 
+  - name: close
+  - name: reopen
+  - name: hold
+    flags:
+      - cancel
+  - name: joke
+  - name: kind
+    args: true 
+  - name: remove-kind
+    args: true 
+  - name: lgtm
+    flags:
+      - cancel
+  - name: ok-to-test
+  - name: 'test all'
+  - name: retest
+  - name: priority
+    args: true 
+  - name: remove-priority
+    args: true 
+  - name: sig
+    args: true 
   #  - kubernetes/sig-<some-github-team>
-  - remove-sig:
-      name: remove-sig
-      args: true #[label1 label2 ...]
-  - release-note:
-      name: release-note
-  - release-note-action-required:
-      name: release-note-action-required
-  - release-note-none:
-      name: release-note-none
-  - status:
-      name: status
-      args: true #[label1 label2 ...]
+  - name: remove-sig
+    args: true 
+  - name: release-note
+  - name: release-note-action-required
+  - name: release-note-none
+  - name: status
+    args: true 

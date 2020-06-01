@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"github.com/Benbentwo/prow-chatops/commands"
 	actions "github.com/sethvargo/go-githubactions"
 	"strings"
 
@@ -15,6 +16,7 @@ import (
 
 var (
 	issueCommentEvent github.IssueCommentEvent
+	CommandMap        = commands.GetCommands().GetAvailableCommands()
 )
 
 func main() {
@@ -31,6 +33,7 @@ func Main() {
 	}
 
 	actions.Warningf("Commenter: %s", issueCommentEvent.Comment.User.Login)
+	GetCommand(issueCommentEvent)
 
 }
 
@@ -41,7 +44,7 @@ func GetCommand(event github.IssueCommentEvent) {
 		return
 	}
 
-	checkIsAvailableCommand(comment)
+	checkIsAvailableCommand(CommandMap, comment)
 }
 func GetCommentString(event github.IssueCommentEvent) string {
 	return event.Comment.Body
@@ -52,8 +55,16 @@ func IsCommandString(comment string) bool {
 	return strings.HasSuffix(str, "/")
 }
 
-func checkIsAvailableCommand(command string) bool {
-	return true
+func checkIsAvailableCommand(cmdMap map[string]commands.Command, command string) bool {
+	if _, contains := cmdMap[command]; contains {
+		return !isDisabled(command)
+	}
+	return false
+}
+
+func isDisabled(command string) bool {
+	// TODO
+	return false
 }
 
 // func handleGenericCommentEvent(pc plugins.Agent, e github.GenericCommentEvent) error {

@@ -1,0 +1,5 @@
+commands:
+- name: approve
+  enabled: true
+  flags: []
+  args: false

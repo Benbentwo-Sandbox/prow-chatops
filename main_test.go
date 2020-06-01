@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"github.com/Benbentwo/prow-chatops/commands"
 	"github.com/Benbentwo/utils/log"
 	"github.com/Benbentwo/utils/util"
 	"github.com/magiconair/properties/assert"
@@ -47,4 +48,31 @@ func TestParse(t *testing.T) {
 	log.Logger().Debugln("Parse Running")
 	// log.Println("Parse Running")
 	assert.Equal(t, IssueCommentEventTest.Comment.User.Login, "Benbentwo")
+}
+
+func TestConfig(t *testing.T) {
+	emptyCmdList := make([]commands.Command, 0)
+	cmds := &commands.Commands{
+		Commands: emptyCmdList,
+	}
+
+	cmds.Commands = append(cmds.Commands, commands.Command{
+		Name:    "approve",
+		Enabled: true,
+		Flags:   nil,
+		Args:    false,
+	})
+
+	err := commands.SaveConfig(cmds, "mock-data/test.yaml")
+	assert.Equal(t, len(cmds.Commands), 1)
+	checkErr(err)
+
+	cmds = &commands.Commands{
+		Commands: emptyCmdList,
+	}
+	err = commands.LoadCommands(cmds, "mock-data/commands.yaml")
+	assert.Equal(t, len(cmds.Commands), 25)
+	err = commands.SaveConfig(cmds, "mock-data/saved-commands.yaml")
+	checkErr(err)
+
 }
